@@ -1,5 +1,5 @@
 # SylSeg
-========
+---------
 
 **Inference**
 to Use the model to produce segmentation borders, you need to run the `inference` code from this repository.
