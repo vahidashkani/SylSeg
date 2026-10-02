@@ -7,7 +7,7 @@ To generate segmentation borders using the model, run the `inference` code in th
 
 The inference script processes the `WAV` files listed in one subject’s input `TSV`. It detects the onset and offset times in each WAV file and saves one output row for each detected segment.
 
-**Note**  
+**Note#1**  
 
 Before running the inference code, make sure that:
 
@@ -17,6 +17,13 @@ Before running the inference code, make sure that:
   
   <img width="575" height="306" alt="Screenshot 2026-10-02 at 3 05 43 PM" src="https://github.com/user-attachments/assets/390064fa-b621-4bc0-be44-b0d599080555" />
 
+**Note#2**
+
+If you set the full path to a wave file like 
+
+WAV_FOLDER = ("/path/to/subject/wav/sub-01_run-03_trial-14.wav")
+
+then the code will return list of `onset` and `offset` borders for that wave file.
 
 # Before running
 -----------------
