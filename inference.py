@@ -418,14 +418,14 @@ if __name__ == "__main__":
     # Required only when WAV_FOLDER is a directory.
     # Ignored when WAV_FOLDER is one WAV file.
     # -----------------------------------------------------------------
-    INPUT_TSV_PATH = ("/Users/vahid/Desktop/for_Sivan/Amanda_data/Input_TSV/sub-011.tsv")
+    INPUT_TSV_PATH = ("/Users/vahid/Desktop/for_Sivan/Amanda_data/Input_TSV/sub-01.tsv")
 
     # -----------------------------------------------------------------
     # Folder where output TSV will be saved
     # Required only when WAV_FOLDER is a directory.
     # Ignored when WAV_FOLDER is one WAV file.
     # -----------------------------------------------------------------
-    OUTPUT_FOLDER = ("/Users/vahid/Desktop/for_Sivan/Amanda_data/Output_TSV_test11111/")
+    OUTPUT_FOLDER = ("/Users/vahid/Desktop/for_Sivan/Amanda_data/Output_TSV_test/")
     # -----------------------------------------------------------------
     # Trained checkpoint
     # -----------------------------------------------------------------
