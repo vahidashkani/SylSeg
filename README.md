@@ -19,9 +19,9 @@ Before running the inference code, make sure that:
 
 **Note#2**
 
-If you set the full path to a wave file like 
+If you set the full path to a wave file like:
 
-WAV_FOLDER = ("/path/to/subject/wav/sub-01_run-03_trial-14.wav")
+*WAV_FOLDER = ("/path/to/subject/wav/sub-01_run-03_trial-14.wav")*
 
 then the code will return list of `onset` and `offset` borders for that wave file.
 
