@@ -361,16 +361,16 @@ def output_tsv_to_textgrids(input_tsv_path: str, wav_folder: str, output_folder:
 if __name__ == "__main__":
     # -------------------------------------------------------------------------
     # Subject output TSV
-    INPUT_TSV_PATH = ("/Users/vahid/Desktop/for_Sivan/Amanda_data/Output_TSV_test/sub_01.tsv")
+    INPUT_TSV_PATH = ("/path/to/output/sub_01.tsv")
 
     # -------------------------------------------------------------------------
     # Folder containing original WAV files.
     # WAV files are needed to obtain their exact duration.
-    WAV_FOLDER = ("/Users/vahid/Desktop/for_Sivan/Amanda_data/formatted_data/test/sub-01/")
+    WAV_FOLDER = ("/path/to/wav/sub-01/")
 
     # -------------------------------------------------------------------------
     # Folder where generated TextGrid files will be saved
-    OUTPUT_TEXTGRID_FOLDER = ("/Users/vahid/Desktop/for_Sivan/Amanda_data/TextGrids/test/sub-01/")
+    OUTPUT_TEXTGRID_FOLDER = ("/path/to/TextGrids/sub-01/")
 
 
     output_tsv_to_textgrids(
