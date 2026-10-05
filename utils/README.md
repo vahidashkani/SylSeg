@@ -1,7 +1,7 @@
 **We have different scripts in this folder that you can find information regarding each separately here.**
 ---------------------------------------
 
-## Conver_syllable_column_to_list
+## Convert_syllable_column_to_list
 ------------------------------------
 
 The inference code requires the syllable column in it's input `.tsv` file to be in `list` format. If your TSV file does not already follow this format, and you may have syllable in formats such as:
@@ -44,8 +44,6 @@ This code converts **Praat TextGrid annotation files into a single TSV file** th
 
 The code reads all `.TextGrid` files from a specified folder, extracts the **non-silent syllable intervals**, and saves their labels, onset times, and offset times in a structured `.tsv` file.
 
-Intervals with an empty label or the label `silent` are ignored.
-
 ### Input
 
 The input is a folder containing `.TextGrid` files.
@@ -56,11 +54,9 @@ The expected filename format is:
 sub-02_run-08_trial-25.TextGrid
 ```
 
-Each TextGrid should contain labeled intervals with their corresponding `xmin` and `xmax` values.
-
 ### Output
 
-The code combines all TextGrid annotations into **one TSV file** with the following columns:
+The code combines all TextGrid annotations into **one TSV file** with the following columns. 
 
 ```text
 subject
@@ -72,8 +68,6 @@ syllable_number
 onset_sec
 offset_sec
 ```
-
-Each non-silent syllable interval is stored as one row. The corresponding WAV filename is also automatically generated from the TextGrid filename.
 
 ### How to Use
 
@@ -90,6 +84,60 @@ textgrids_to_output_tsv(
 )
 ```
 
-For example, a labeled TextGrid interval containing `pa` from `0.5200` to `0.7100` seconds will produce a TSV row containing the syllable label together with its onset and offset times.
+## tsv_to_TextGrid
+-------------------------
 
-The function returns the generated Pandas DataFrame and also saves it to the specified `OUTPUT_TSV_PATH`.
+This code converts the **segmentation results stored in an output TSV file into Praat TextGrid files**. One separate TextGrid is generated for each WAV file/trial.
+
+The detected onset and offset times are used to create the syllable intervals. The gaps between syllables are automatically labeled as `silent`, and the TextGrid covers the complete duration of the corresponding WAV file.
+
+### Input
+
+The code requires:
+
+1. An **output TSV file** containing the segmentation results with the following columns:
+
+```text
+subject
+run
+trial
+syllable
+wav_file
+syllable_number
+onset_sec
+offset_sec
+```
+
+2. A **WAV folder** containing the original WAV files. The WAV files are used to obtain the exact duration of each recording.
+
+### Output
+
+The output is a folder containing **one `.TextGrid` file for each WAV file/trial**.
+
+
+### How to Use
+
+Set the following paths:
+
+```python
+INPUT_TSV_PATH = "/path/to/output/sub_01.tsv"
+
+WAV_FOLDER = "/path/to/wav/sub-01/"
+
+OUTPUT_TEXTGRID_FOLDER = "/path/to/TextGrids/sub-01/"
+```
+
+Then run:
+
+```python
+output_tsv_to_textgrids(
+    input_tsv_path=INPUT_TSV_PATH,
+    wav_folder=WAV_FOLDER,
+    output_folder=OUTPUT_TEXTGRID_FOLDER,
+    use_syllable_label=True,
+)
+```
+
+Set `use_syllable_label=True` to include the syllable labels from the TSV file in the generated TextGrids.
+
+If any WAV file cannot be converted, the code records the error in `failed_textgrid_conversion.tsv` inside the output folder.
