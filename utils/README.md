@@ -7,13 +7,21 @@
 The inference code requires the syllable column in it's input `.tsv` file to be in `list` format. If your TSV file does not already follow this format, and you may have syllable in formats such as:
 
 ```text
+31452       
+pa ta ka    
+pa-ta-ka    
+pa_ta_ka    
+day         
+```
+So, you can use this function to convert it to **list format required by the inference code**. Then, the converted TSV file can be like:
+
+```text
 31452       → ["3","1","4","5","2"]
 pa ta ka    → ["pa","ta","ka"]
 pa-ta-ka    → ["pa","ta","ka"]
 pa_ta_ka    → ["pa","ta","ka"]
 day         → ["day"]
 ```
-So, you can use this function to convert it to **list format required by the inference code**. The converted TSV file keeps the original columns and only reformats the `syllable` column.
 
 ### How to Use
 
