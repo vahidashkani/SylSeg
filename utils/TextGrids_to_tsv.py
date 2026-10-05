@@ -235,9 +235,9 @@ def textgrids_to_output_tsv(textgrid_folder: str, output_tsv_path: str, silence_
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 if __name__ == "__main__":
     # input TextGrid
-    TEXTGRID_FOLDER = ("/Users/vahid/Desktop/for_Sivan/Amanda_data/TextGrids/test/sub-01/")
+    TEXTGRID_FOLDER = ("/path/to/TextGrid/folder/sub-01/")
     # Output TSV
-    OUTPUT_TSV_PATH = ("/Users/vahid/Desktop/for_Sivan/Amanda_data/Corrected_TSV/test/sub_01.tsv")
+    OUTPUT_TSV_PATH = ("/path/to/output/sub_01.tsv")
     
     # Convert
     textgrids_to_output_tsv(
