@@ -1,5 +1,5 @@
-We have different scripts in this folder that you can find information regarding each separately here.
-==========================================================
+**We have different scripts in this folder that you can find information regarding each separately here.**
+---------------------------------------
 
 ## Conver_syllable_column_to_list
 ------------------------------------
