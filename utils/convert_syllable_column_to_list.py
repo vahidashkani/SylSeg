@@ -61,8 +61,8 @@ def convert_tsv_syllables(input_tsv, output_tsv):
 # you can use this function like below to convert your .tsv files into List based TSV file
 
 '''
-input_tsv = "/Users/vahid/Desktop/for_Sivan/Amanda_data/Input_TSV/sub-01.tsv"
-output_tsv = "/Users/vahid/Desktop/for_Sivan/Amanda_data/Input_TSV/sub-01_converted.tsv"
+input_tsv = "/path/to-input/sub-01.tsv"
+output_tsv = "/path/to-output/sub-01_converted.tsv"
 
 convert_tsv_syllables(input_tsv, output_tsv)
 '''
