@@ -4,7 +4,7 @@
 ## Conver_syllable_column_to_list
 ------------------------------------
 
-The inference code requires the syllable column in the input .tsv file to be in list format. If your TSV file does not already follow this format, the syllable information may appear in formats such as:
+The inference code requires the syllable column in it's input `.tsv` file to be in `list` format. If your TSV file does not already follow this format, and you may have syllable in formats such as:
 
 ```text
 31452       → ["3","1","4","5","2"]
