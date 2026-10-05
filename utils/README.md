@@ -37,5 +37,59 @@ The converted file will be saved to the specified `output_tsv` path and can then
 
 
 
-## convert_TextGrids_to_tsv
+## TextGrids_to_tsv
 ----------------------------
+
+This code converts **Praat TextGrid annotation files into a single TSV file** that can be used for training, evaluation, or analysis.
+
+The code reads all `.TextGrid` files from a specified folder, extracts the **non-silent syllable intervals**, and saves their labels, onset times, and offset times in a structured `.tsv` file.
+
+Intervals with an empty label or the label `silent` are ignored.
+
+### Input
+
+The input is a folder containing `.TextGrid` files.
+
+The expected filename format is:
+
+```text
+sub-02_run-08_trial-25.TextGrid
+```
+
+Each TextGrid should contain labeled intervals with their corresponding `xmin` and `xmax` values.
+
+### Output
+
+The code combines all TextGrid annotations into **one TSV file** with the following columns:
+
+```text
+subject
+run
+trial
+syllable
+wav_file
+syllable_number
+onset_sec
+offset_sec
+```
+
+Each non-silent syllable interval is stored as one row. The corresponding WAV filename is also automatically generated from the TextGrid filename.
+
+### How to Use
+
+Set the folder containing the TextGrid files and the desired output TSV path:
+
+```python
+TEXTGRID_FOLDER = "/path/to/TextGrid/folder/"
+OUTPUT_TSV_PATH = "/path/to/output/sub_01.tsv"
+
+textgrids_to_output_tsv(
+    textgrid_folder=TEXTGRID_FOLDER,
+    output_tsv_path=OUTPUT_TSV_PATH,
+    silence_label="silent",
+)
+```
+
+For example, a labeled TextGrid interval containing `pa` from `0.5200` to `0.7100` seconds will produce a TSV row containing the syllable label together with its onset and offset times.
+
+The function returns the generated Pandas DataFrame and also saves it to the specified `OUTPUT_TSV_PATH`.
